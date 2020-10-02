@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema | Login</title>
+</head>
+<body>
+  <form method="post" action="http://localhost/url_amigavel/user/create">
+    <div>
+      <h2>Registre-se para fazer parte do nosso time!</h2>
+      <p id="error-message">Você precisa preencher todos os campos antes de se cadastrar.</p>
+    </div>
+    
+    <div id="input-group">
+      <input type="text" name="name" placeholder="Seu nome completo" />
+      <input type="text" name="email" placeholder="Seu melhor e-mail" />
+      <input type="password" name="password" placeholder="Crie uma senha" />
+      <button type="submit">Registrar</button>
+
+      <a href="http://localhost/url_amigavel">Já faz parte? Faça login.</a>
+    </div> 
+  </form>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      border: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f5f0f9;
+      color: #444;
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+    }
+
+    form h2 {
+      font-size: 28px;
+    }
+
+    form #error-message {
+      color: #F22E62;
+      display: none;
+      transition: all 1.2s;
+    }
+
+    #input-group {
+      display: flex;
+      flex-direction: column;
+      width: 450px;
+      margin-left: 60px;
+    }
+
+    input {
+      margin-bottom: 10px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 12px #aaa;
+      font-size: 18px;
+      transition: all 1s;
+    }
+
+    button {
+      padding: 20px;
+      background-color: #F22E62;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.8s;
+    }
+
+    button:hover {
+      opacity: 0.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: #F22E62;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+
+  <script>
+    const inputs = document.querySelectorAll('input');
+    
+    inputs.forEach(item => {
+      item.addEventListener("focus", () => {
+        item.style.border = "1px solid #F22E62";
+      });  
+    });
+
+    const form = document.querySelector('form').addEventListener('submit', event => {
+      event.preventDefault();
+      const name_input = document.querySelector('input[name=name]').value;
+      const email_input = document.querySelector('input[name=email]').value;
+      const password_input = document.querySelector('input[type=password]').value;
+      
+      if (name_input.length == 0 || email_input.length == 0 || password_input.length == 0) {
+        document.querySelector('p#error-message').style.display = "block";
+      } else {
+        document.querySelector('form').submit();
+      }
+    });
+  
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube - Profile</title>
+  <link rel="stylesheet" href="http://localhost/url_amigavel/assets/css/profile.css">
+</head>
+<body>
+  <header>
+    <p>Bem-vindo(a), {{ user_name }}!</p>
+
+    <div id="actions">
+      <a id="profile" href="http://localhost/url_amigavel/dashboard">Dashboard</a>
+      <button>
+        <a href="http://localhost/url_amigavel/login/kill">LOGOUT</a>
+      </button>
+    </div>
+    
+  </header>
+  
+  <div class="container">
+    <div class="card">
+      <h2>Suas informações</h2>
+
+      <form action="http://localhost/url_amigavel/user/update" method="post">
+        <label for="name">Nome</label>
+        <input type="text" name="name" id="name" value="{{ user_name }}" />
+
+        <label for="email">E-mail</label>
+        <input type="text" name="email" id="email" value="{{ user_email }}" />
+
+        <button type="submit">
+          Salvar alterações
+        </button>
+      </form>
+
+    </div>
+  </div>
+ 
+</body>
+</html>

@@ -1,0 +1,6 @@
+-> Sistema de Rotas
+  # Criar nova forma de impedir usuários de acessar páginas restritas
+
+-> Usuários autenticados
+  # [OK] Mostrar tela com informações do usuário
+  # [OK] Permitir a edição das informações (update)
